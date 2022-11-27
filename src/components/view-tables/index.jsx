@@ -1,11 +1,11 @@
 import React from 'react'
-import { FormContent, FormHeader } from '../style/card'
+import { Wrapper, FormHeader } from '../style/card'
 
 const TableList = () => {
     return (
-        <FormContent>
+        <Wrapper>
             <FormHeader>Tables</FormHeader>
-        </FormContent>
+        </Wrapper>
     )
 }
 
