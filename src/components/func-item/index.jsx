@@ -1,34 +1,49 @@
 import React, { useState } from 'react'
-import { Wrapper, WrapperColumn } from '../style/wrapper'
+import styled from 'styled-components'
 import ToggleButton from '../toggle-button'
-import View from './view'
-import Form from './view-create'
+import DeletePlantForm from './delete-form'
+import CreatePlantForm from './create-plants-form'
+import CreateUserForm from './create-users-form'
 
 const FuncForPlant = () => {
-    const [deleted, setDeleted] = useState(false)
-    const onDeleted = () => {
-        setDeleted((prev) => !prev)
+    const [deletedPlant, setPlant] = useState(false)
+    const [createdUser, setCreatedUser] = useState(false)
+    const [createdPlant, setCreatedPlant] = useState(false)
+
+    const onDeletedPlant = () => {
+        setPlant((prev) => !prev)
     }
-    const [updated, setUpdated] = useState(false)
-    const onUpdated = () => {
-        setUpdated((prev) => !prev)
+    const onCreatedUser = () => {
+        setCreatedUser((prev) => !prev)
     }
-    const [created, setCreated] = useState(true)
-    const onCreated = () => {
-        setCreated((prev) => !prev)
+    const onCreatedPlant = () => {
+        setCreatedPlant((prev) => !prev)
     }
     return (
-        <WrapperColumn>
-            <Wrapper>
-                <ToggleButton onClick={onCreated} name='Create' />
-                <ToggleButton onClick={onDeleted} name='Delete' />
-                <ToggleButton onClick={onUpdated} name='Update' />
-            </Wrapper>
-            {created && <Form />}
-            {deleted && <View name='Delete'/>}
-            {updated && <View name='Update'/>}
-        </WrapperColumn>
+        <Column>
+            <Row>
+                <ToggleButton onClick={onCreatedPlant} name='Create plant' />
+                <ToggleButton onClick={onCreatedUser} name='Create user' />
+                <ToggleButton onClick={onDeletedPlant} name='Delete plant' />
+            </Row>
+            <Row>
+                {createdPlant && <CreatePlantForm />}
+                {createdUser && <CreateUserForm />}
+            </Row>
+            {deletedPlant && <DeletePlantForm />}
+        </Column>
     )
 }
+const Row = styled.div`
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+`
+const Column = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+`
 
 export default FuncForPlant

@@ -13,8 +13,9 @@ const ToggledButton = styled.button`
 	width: 135px;
 	height: 40px;
 	border-radius: 5px;
+	border: 2px solid #257f40;
 	color: #fff;
 	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 `
 
-export default ToggleButton
+export default React.memo(ToggleButton)

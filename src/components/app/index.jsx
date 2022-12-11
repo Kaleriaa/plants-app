@@ -1,9 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import AppHeader from '../app-header'
-import TableList from '../view-tables'
 import RequestInput from '../request'
-import { Wrapper } from '../style/wrapper'
 import FuncForPlant from '../func-item'
 
 const App = () => {
@@ -14,11 +12,6 @@ const App = () => {
             </Container>
             <Container>
                 <RequestInput />
-            </Container>
-            <Container>
-                <Wrapper>
-                    <TableList />
-                </Wrapper>
             </Container>
             <Container>
                 <FuncForPlant />
